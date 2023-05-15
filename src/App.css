@@ -1,1 +1,29 @@
+:root {
+    --light100: #fff;
+    --dark100: #2c2c2c;
 
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-default: var(--font-weight-regular);
+
+    --font-size-default: 15px;
+    --font-size-lg: 25px;
+
+    --text-color-default: var(--dark100);
+    --text-color-light: var(--light100);
+
+    --bg-color-default: var(--light100);
+    --bg-color-dark: var(--dark100);
+
+    --border-color-default: var(--dark100);
+}
+
+body {
+    font-size: var(--font-size-default);
+    color: var(--text-color-default);
+}
+
+body a {
+    color: inherit;
+    text-decoration: none;
+}

@@ -1,11 +1,13 @@
+import styles from "./Header.module.css";
+
 export function Header() {
   return (
-    <header className="header">
-      <h1 className="header__title">Timeline Slider Concept</h1>
-      <div className="header__btns">
+    <header className={styles.header}>
+      <h1 className={styles.title}>React Circle Progress Bar Concept</h1>
+      <div className={styles.btnsContainer}>
         <a
+          className={styles.btn}
           href="https://github.com/nat-davydova/react-circle-progress-bar"
-          className="header__btn"
           target="_blank"
           title="Check On Github"
         >
