@@ -6,6 +6,7 @@ interface IGetProgressSVGParams {
 
 export function getProgressSVGParams({ strokeWidth }: IGetProgressSVGParams) {
   const radius = CIRCLE_CENTER_COORD - strokeWidth;
+  const circleLength = 2 * Math.PI * radius;
 
-  return { radius };
+  return { radius, circleLength };
 }

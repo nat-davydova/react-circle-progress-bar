@@ -8,7 +8,7 @@ function App() {
       <Header />
       <div className="container">
         <div className="content">
-          <CircleProgressBar />
+          <CircleProgressBar strokeWidth={4} />
         </div>
       </div>
     </div>
