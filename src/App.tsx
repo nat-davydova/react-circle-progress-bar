@@ -1,6 +1,6 @@
 import "./App.css";
+import { CircleProgressBar } from "./Components/CircleProgressBar/CircleProgressBar.tsx";
 import { Header } from "./Components/Header/Header.tsx";
-import { ProgressBarCircle } from "./Components/ProgressBarCircle/ProgressBarCircle.tsx";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <Header />
       <div className="container">
         <div className="content">
-          <ProgressBarCircle />
+          <CircleProgressBar />
         </div>
       </div>
     </div>
