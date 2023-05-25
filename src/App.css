@@ -29,7 +29,7 @@ body a {
 }
 
 .container {
-    --wrapper-width: 900px;
+    --wrapper-width: 700px;
 
     width: 95%;
     max-width: var(--wrapper-width);
