@@ -8,7 +8,7 @@ function App() {
       <Header />
       <div className="container">
         <div className="content">
-          <CircleProgressBar strokeWidth={4} />
+          <CircleProgressBar strokeWidth={4} progressPercents={65} />
         </div>
       </div>
     </div>

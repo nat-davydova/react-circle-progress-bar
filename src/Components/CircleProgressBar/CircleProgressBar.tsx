@@ -7,12 +7,17 @@ import { getProgressSVGParams } from "./utils.ts";
 
 interface ICircleProgressBarProps {
   strokeWidth?: number;
+  progressPercents: number;
 }
 
 export function CircleProgressBar({
   strokeWidth = PROGRESS_STROKE_WIDTH_DEFAULT_PX,
+  progressPercents,
 }: ICircleProgressBarProps) {
-  const { radius, circleLength } = getProgressSVGParams({ strokeWidth });
+  const { radius, circleLength, offset } = getProgressSVGParams({
+    strokeWidth,
+    progressPercents,
+  });
 
   return (
     <div className={styles.container}>
@@ -24,6 +29,7 @@ export function CircleProgressBar({
           stroke="black"
           strokeWidth={strokeWidth}
           strokeDasharray={circleLength}
+          strokeDashoffset={offset}
           fill="transparent"
         />
       </svg>
