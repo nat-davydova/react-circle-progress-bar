@@ -1,3 +1,5 @@
+import styles from "./ProgressBarCircle.module.css";
+
 export function ProgressBarCircle() {
-  return <div>Wow</div>;
+  return <div className={styles.container}>Wow</div>;
 }
