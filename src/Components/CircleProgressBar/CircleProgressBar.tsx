@@ -21,7 +21,11 @@ export function CircleProgressBar({
 
   return (
     <div className={styles.container}>
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        className={styles.progressBar}
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <circle
           cx={CIRCLE_CENTER_COORD}
           cy={CIRCLE_CENTER_COORD}
