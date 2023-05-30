@@ -1,6 +1,8 @@
 :root {
     --light100: #fff;
-    --dark100: #2c2c2c;
+
+    --dark200: #e3e3e3;
+    --dark900: #2c2c2c;
 
     --font-weight-regular: 400;
     --font-weight-semibold: 600;
@@ -9,13 +11,14 @@
     --font-size-default: 15px;
     --font-size-lg: 25px;
 
-    --text-color-default: var(--dark100);
+    --text-color-default: var(--dark900);
     --text-color-light: var(--light100);
 
     --bg-color-default: var(--light100);
-    --bg-color-dark: var(--dark100);
+    --bg-color-dark: var(--dark900);
 
-    --border-color-default: var(--dark100);
+    --border-color-default: var(--dark900);
+    --border-color-light: var(--dark200);
 }
 
 body {

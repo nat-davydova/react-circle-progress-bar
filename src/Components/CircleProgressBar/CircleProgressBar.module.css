@@ -9,3 +9,7 @@
 .progressBar {
     transform: rotate(270deg) scaleY(-1);
 }
+
+.surface {
+    stroke: var(--border-color-light);
+}

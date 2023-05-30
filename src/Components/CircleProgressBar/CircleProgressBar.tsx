@@ -9,18 +9,14 @@ interface ICircleProgressBarProps {
   strokeWidth?: number;
   showSurface?: boolean;
   progressPercents: number;
-  surfaceSettings?: ISurfaceSettings;
-}
-
-interface ISurfaceSettings {
-  bgColor: string;
+  surfaceBgColor?: string;
 }
 
 export function CircleProgressBar({
   strokeWidth = PROGRESS_STROKE_WIDTH_DEFAULT_PX,
   progressPercents,
   showSurface = false,
-  surfaceSettings,
+  surfaceBgColor,
 }: ICircleProgressBarProps) {
   const { radius, circleLength, offset } = getProgressSVGParams({
     strokeWidth,
@@ -39,9 +35,10 @@ export function CircleProgressBar({
             cx={CIRCLE_CENTER_COORD}
             cy={CIRCLE_CENTER_COORD}
             r={radius}
-            stroke="black"
+            stroke={surfaceBgColor && surfaceBgColor}
             strokeWidth={strokeWidth}
             fill="transparent"
+            className={!surfaceBgColor ? styles.surface : ""}
           />
         )}
         <circle
