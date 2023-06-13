@@ -27,11 +27,23 @@ export function CircleProgressBar({
   progressBar,
 }: ICircleProgressBarProps) {
   const { show: showSurface, bgColor: surfaceBgColor } = surface;
-  const { bgColor: progressBgColor } = progressBar;
+  const {
+    bgColor: progressBgColor,
+    bgGradientPoints: progressBgradientPoints,
+  } = progressBar;
   const { radius, circleLength, offset } = getProgressSVGParams({
     strokeWidth,
     progressPercents,
   });
+
+  const isProgressGradientDefined =
+    progressBgradientPoints &&
+    Boolean(Object.keys(progressBgradientPoints).length);
+
+  const progressStrokeImage =
+    (isProgressGradientDefined && "url(#progressGradient)") ||
+    progressBgColor ||
+    undefined;
 
   return (
     <div className={styles.container}>
@@ -40,6 +52,19 @@ export function CircleProgressBar({
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <defs>
+          {isProgressGradientDefined && (
+            <linearGradient id="progressGradient">
+              {Object.keys(progressBgradientPoints).map((point) => (
+                <stop
+                  stopColor={progressBgradientPoints[point]}
+                  offset={`${point}%`}
+                />
+              ))}
+            </linearGradient>
+          )}
+        </defs>
+
         {showSurface && (
           <circle
             cx={CIRCLE_CENTER_COORD}
@@ -55,13 +80,17 @@ export function CircleProgressBar({
           cx={CIRCLE_CENTER_COORD}
           cy={CIRCLE_CENTER_COORD}
           r={radius}
-          stroke={progressBgColor}
+          stroke={progressStrokeImage}
           strokeWidth={strokeWidth}
           strokeDasharray={circleLength}
           strokeDashoffset={offset}
           strokeLinecap={strokeLineCap}
           fill="transparent"
-          className={!progressBgColor ? styles.progress : ""}
+          className={
+            !progressBgColor && !isProgressGradientDefined
+              ? styles.progress
+              : ""
+          }
         />
       </svg>
     </div>

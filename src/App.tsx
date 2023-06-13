@@ -15,7 +15,13 @@ function App() {
             surface={{
               show: true,
             }}
-            progressBar={{}}
+            progressBar={{
+              bgColor: "orange",
+              bgGradientPoints: {
+                0: "red",
+                100: "orange",
+              },
+            }}
           />
         </div>
       </div>

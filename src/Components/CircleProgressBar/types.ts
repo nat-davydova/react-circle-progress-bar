@@ -7,4 +7,5 @@ export interface ISurfaceSettings {
 
 export interface IProgressBarSettings {
   bgColor?: string;
+  bgGradientPoints?: Record<string, string>;
 }
