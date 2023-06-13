@@ -11,7 +11,10 @@ function App() {
           <CircleProgressBar
             strokeWidth={4}
             progressPercents={65}
-            showSurface
+            strokeLineCap="round"
+            surface={{
+              show: true,
+            }}
           />
         </div>
       </div>
