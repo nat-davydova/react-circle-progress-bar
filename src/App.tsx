@@ -15,6 +15,7 @@ function App() {
             surface={{
               show: true,
             }}
+            progressBar={{}}
           />
         </div>
       </div>

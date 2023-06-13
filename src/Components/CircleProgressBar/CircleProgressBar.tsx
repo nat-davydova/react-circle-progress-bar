@@ -4,6 +4,11 @@ import {
   DEFAULT_PROGRESS_STROKE_WIDTH_PX,
   DEFAULT_STROKE_LINECAP,
 } from "./consts.ts";
+import {
+  IProgressBarSettings,
+  ISurfaceSettings,
+  TStrokeLineCaps,
+} from "./types.ts";
 import { getProgressSVGParams } from "./utils.ts";
 
 interface ICircleProgressBarProps {
@@ -11,15 +16,18 @@ interface ICircleProgressBarProps {
   progressPercents: number;
   surface: ISurfaceSettings;
   strokeLineCap?: TStrokeLineCaps;
+  progressBar: IProgressBarSettings;
 }
 
 export function CircleProgressBar({
   strokeWidth = DEFAULT_PROGRESS_STROKE_WIDTH_PX,
   progressPercents,
-  surface,
   strokeLineCap = DEFAULT_STROKE_LINECAP,
+  surface,
+  progressBar,
 }: ICircleProgressBarProps) {
   const { show: showSurface, bgColor: surfaceBgColor } = surface;
+  const { bgColor: progressBgColor } = progressBar;
   const { radius, circleLength, offset } = getProgressSVGParams({
     strokeWidth,
     progressPercents,
@@ -37,7 +45,7 @@ export function CircleProgressBar({
             cx={CIRCLE_CENTER_COORD}
             cy={CIRCLE_CENTER_COORD}
             r={radius}
-            stroke={surfaceBgColor && surfaceBgColor}
+            stroke={surfaceBgColor}
             strokeWidth={strokeWidth}
             fill="transparent"
             className={!surfaceBgColor ? styles.surface : ""}
@@ -47,12 +55,13 @@ export function CircleProgressBar({
           cx={CIRCLE_CENTER_COORD}
           cy={CIRCLE_CENTER_COORD}
           r={radius}
-          stroke="black"
+          stroke={progressBgColor}
           strokeWidth={strokeWidth}
           strokeDasharray={circleLength}
           strokeDashoffset={offset}
           strokeLinecap={strokeLineCap}
           fill="transparent"
+          className={!progressBgColor ? styles.progress : ""}
         />
       </svg>
     </div>

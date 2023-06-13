@@ -13,3 +13,7 @@
 .surface {
     stroke: var(--border-color-light);
 }
+
+.progress {
+    stroke: var(--border-color-default);
+}

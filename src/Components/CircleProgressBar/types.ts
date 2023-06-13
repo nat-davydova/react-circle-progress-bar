@@ -1,6 +1,10 @@
-type TStrokeLineCaps = "round" | "square";
+export type TStrokeLineCaps = "round" | "square";
 
-interface ISurfaceSettings {
+export interface ISurfaceSettings {
   show: boolean;
+  bgColor?: string;
+}
+
+export interface IProgressBarSettings {
   bgColor?: string;
 }
