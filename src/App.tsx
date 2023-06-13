@@ -21,6 +21,12 @@ function App() {
                 0: "red",
                 100: "orange",
               },
+              gradientCoords: {
+                x1: 0,
+                x2: 1,
+                y1: 0,
+                y2: 1,
+              },
             }}
           />
         </div>

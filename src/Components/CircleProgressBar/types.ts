@@ -5,7 +5,15 @@ export interface ISurfaceSettings {
   bgColor?: string;
 }
 
+interface IGradientCoords {
+  x1: number;
+  x2: number;
+  y1: number;
+  y2: number;
+}
+
 export interface IProgressBarSettings {
   bgColor?: string;
   bgGradientPoints?: Record<string, string>;
+  gradientCoords?: IGradientCoords;
 }

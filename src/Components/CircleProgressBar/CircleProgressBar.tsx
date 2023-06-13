@@ -30,7 +30,9 @@ export function CircleProgressBar({
   const {
     bgColor: progressBgColor,
     bgGradientPoints: progressBgradientPoints,
+    gradientCoords,
   } = progressBar;
+
   const { radius, circleLength, offset } = getProgressSVGParams({
     strokeWidth,
     progressPercents,
@@ -54,7 +56,13 @@ export function CircleProgressBar({
       >
         <defs>
           {isProgressGradientDefined && (
-            <linearGradient id="progressGradient">
+            <linearGradient
+              id="progressGradient"
+              x1={gradientCoords?.x1}
+              x2={gradientCoords?.x2}
+              y1={gradientCoords?.y1}
+              y2={gradientCoords?.y2}
+            >
               {Object.keys(progressBgradientPoints).map((point) => (
                 <stop
                   stopColor={progressBgradientPoints[point]}
