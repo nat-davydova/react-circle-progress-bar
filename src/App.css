@@ -42,3 +42,9 @@ body a {
 .content {
     margin: 50px auto;
 }
+
+.progressBar-container {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}

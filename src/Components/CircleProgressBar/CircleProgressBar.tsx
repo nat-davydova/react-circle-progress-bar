@@ -17,6 +17,7 @@ interface ICircleProgressBarProps {
   surface: ISurfaceSettings;
   strokeLineCap?: TStrokeLineCaps;
   progressBar: IProgressBarSettings;
+  containerClassName?: string;
 }
 
 export function CircleProgressBar({
@@ -25,6 +26,7 @@ export function CircleProgressBar({
   strokeLineCap = DEFAULT_STROKE_LINECAP,
   surface,
   progressBar,
+  containerClassName: externalContainerClassName,
 }: ICircleProgressBarProps) {
   const { show: showSurface, bgColor: surfaceBgColor } = surface;
   const {
@@ -49,58 +51,60 @@ export function CircleProgressBar({
 
   return (
     <div className={styles.container}>
-      <svg
-        className={styles.progressBar}
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          {isProgressGradientDefined && (
-            <linearGradient
-              id="progressGradient"
-              x1={gradientCoords?.x1}
-              x2={gradientCoords?.x2}
-              y1={gradientCoords?.y1}
-              y2={gradientCoords?.y2}
-            >
-              {Object.keys(progressBgradientPoints).map((point) => (
-                <stop
-                  stopColor={progressBgradientPoints[point]}
-                  offset={`${point}%`}
-                />
-              ))}
-            </linearGradient>
-          )}
-        </defs>
+      <div className={externalContainerClassName || ""}>
+        <svg
+          className={styles.progressBar}
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            {isProgressGradientDefined && (
+              <linearGradient
+                id="progressGradient"
+                x1={gradientCoords?.x1}
+                x2={gradientCoords?.x2}
+                y1={gradientCoords?.y1}
+                y2={gradientCoords?.y2}
+              >
+                {Object.keys(progressBgradientPoints).map((point) => (
+                  <stop
+                    stopColor={progressBgradientPoints[point]}
+                    offset={`${point}%`}
+                  />
+                ))}
+              </linearGradient>
+            )}
+          </defs>
 
-        {showSurface && (
+          {showSurface && (
+            <circle
+              cx={CIRCLE_CENTER_COORD}
+              cy={CIRCLE_CENTER_COORD}
+              r={radius}
+              stroke={surfaceBgColor}
+              strokeWidth={strokeWidth}
+              fill="transparent"
+              className={!surfaceBgColor ? styles.surface : ""}
+            />
+          )}
           <circle
             cx={CIRCLE_CENTER_COORD}
             cy={CIRCLE_CENTER_COORD}
             r={radius}
-            stroke={surfaceBgColor}
+            stroke={progressStrokeImage}
             strokeWidth={strokeWidth}
+            strokeDasharray={circleLength}
+            strokeDashoffset={offset}
+            strokeLinecap={strokeLineCap}
             fill="transparent"
-            className={!surfaceBgColor ? styles.surface : ""}
+            className={
+              !progressBgColor && !isProgressGradientDefined
+                ? styles.progress
+                : ""
+            }
           />
-        )}
-        <circle
-          cx={CIRCLE_CENTER_COORD}
-          cy={CIRCLE_CENTER_COORD}
-          r={radius}
-          stroke={progressStrokeImage}
-          strokeWidth={strokeWidth}
-          strokeDasharray={circleLength}
-          strokeDashoffset={offset}
-          strokeLinecap={strokeLineCap}
-          fill="transparent"
-          className={
-            !progressBgColor && !isProgressGradientDefined
-              ? styles.progress
-              : ""
-          }
-        />
-      </svg>
+        </svg>
+      </div>
     </div>
   );
 }

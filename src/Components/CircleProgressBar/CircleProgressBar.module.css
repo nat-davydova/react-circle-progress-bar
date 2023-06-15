@@ -1,9 +1,12 @@
 .container {
     display: flex;
     justify-content: center;
-    margin: auto;
-    width: 300px;
-    height: 300px;
+    height: 100%;
+}
+
+.container > div,
+.container svg {
+    height: 100%;
 }
 
 .progressBar {
