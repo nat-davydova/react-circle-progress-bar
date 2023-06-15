@@ -68,6 +68,7 @@ export function CircleProgressBar({
               >
                 {Object.keys(progressBgradientPoints).map((point) => (
                   <stop
+                    key={`${point}-${progressBgradientPoints[point]}`}
                     stopColor={progressBgradientPoints[point]}
                     offset={`${point}%`}
                   />
