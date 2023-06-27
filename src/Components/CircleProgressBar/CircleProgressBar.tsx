@@ -29,6 +29,7 @@ export function CircleProgressBar({
   strokeLineCap = DEFAULT_STROKE_LINECAP,
   surface,
   progressBar,
+  textLabel,
   containerClassName: externalContainerClassName,
 }: ICircleProgressBarProps) {
   const { show: showSurface, bgColor: surfaceBgColor } = surface;
@@ -108,6 +109,7 @@ export function CircleProgressBar({
             }
           />
         </svg>
+        {textLabel && <div className={styles.label}>{textLabel}</div>}
       </div>
     </div>
   );

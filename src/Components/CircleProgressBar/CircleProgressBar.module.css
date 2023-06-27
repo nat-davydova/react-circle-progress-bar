@@ -1,4 +1,5 @@
 .container {
+    position: relative;
     display: flex;
     justify-content: center;
     height: 100%;
@@ -19,4 +20,11 @@
 
 .progress {
     stroke: var(--border-color-default);
+}
+
+.label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
