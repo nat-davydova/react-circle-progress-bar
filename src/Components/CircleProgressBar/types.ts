@@ -22,5 +22,5 @@ export interface IProgressBarSettings {
 
 export interface ITextLabelSettings {
   content: React.ReactElement | string;
-  classname?: string;
+  labelContainerClassname?: string;
 }

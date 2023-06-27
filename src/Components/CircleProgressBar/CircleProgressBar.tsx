@@ -109,7 +109,7 @@ export function CircleProgressBar({
           />
         </svg>
         {textLabel?.content && (
-          <div className={textLabel?.classname || styles.label}>
+          <div className={textLabel?.labelContainerClassname || styles.label}>
             {textLabel?.content}
           </div>
         )}
