@@ -13,7 +13,9 @@ function App() {
               strokeWidth={4}
               progressPercents={65}
               strokeLineCap="round"
-              textLabel="65%"
+              textLabel={{
+                content: "65%",
+              }}
               surface={{
                 show: true,
               }}

@@ -7,7 +7,7 @@
 
 .container > div,
 .container svg {
-    height: 100%;
+    min-height: 100%;
 }
 
 .progressBar {
@@ -26,5 +26,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    font-size: 30px;
     transform: translate(-50%, -50%);
 }

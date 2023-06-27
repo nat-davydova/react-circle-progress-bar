@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "./CircleProgressBar.module.css";
 import {
   CIRCLE_CENTER_COORD,
@@ -9,6 +7,7 @@ import {
 import {
   IProgressBarSettings,
   ISurfaceSettings,
+  ITextLabelSettings,
   TStrokeLineCaps,
 } from "./types.ts";
 import { getProgressSVGParams } from "./utils.ts";
@@ -20,7 +19,7 @@ interface ICircleProgressBarProps {
   strokeLineCap?: TStrokeLineCaps;
   progressBar: IProgressBarSettings;
   containerClassName?: string;
-  textLabel?: React.ReactElement | string;
+  textLabel?: ITextLabelSettings;
 }
 
 export function CircleProgressBar({
@@ -109,7 +108,11 @@ export function CircleProgressBar({
             }
           />
         </svg>
-        {textLabel && <div className={styles.label}>{textLabel}</div>}
+        {textLabel?.content && (
+          <div className={textLabel?.classname || styles.label}>
+            {textLabel?.content}
+          </div>
+        )}
       </div>
     </div>
   );

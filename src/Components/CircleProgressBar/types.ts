@@ -1,3 +1,5 @@
+import React from "react";
+
 export type TStrokeLineCaps = "round" | "square";
 
 export interface ISurfaceSettings {
@@ -16,4 +18,9 @@ export interface IProgressBarSettings {
   bgColor?: string;
   bgGradientPoints?: Record<string, string>;
   gradientCoords?: IGradientCoords;
+}
+
+export interface ITextLabelSettings {
+  content: React.ReactElement | string;
+  classname?: string;
 }

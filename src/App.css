@@ -48,3 +48,7 @@ body a {
     height: 250px;
     margin: auto;
 }
+
+.textLabel {
+    color: red;
+}
