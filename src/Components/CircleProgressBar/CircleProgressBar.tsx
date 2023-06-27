@@ -1,3 +1,5 @@
+import React from "react";
+
 import styles from "./CircleProgressBar.module.css";
 import {
   CIRCLE_CENTER_COORD,
@@ -18,6 +20,7 @@ interface ICircleProgressBarProps {
   strokeLineCap?: TStrokeLineCaps;
   progressBar: IProgressBarSettings;
   containerClassName?: string;
+  textLabel?: React.ReactElement | string;
 }
 
 export function CircleProgressBar({
