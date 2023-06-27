@@ -1,6 +1,7 @@
 import "./App.css";
 import { CircleProgressBar } from "./Components/CircleProgressBar/CircleProgressBar.tsx";
 import { Header } from "./Components/Header/Header.tsx";
+import { SettingsForm } from "./Components/SettingsForm/SettingsForm.tsx";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <div className="container">
         <div className="content">
+          <SettingsForm />
           <div className="progressBar-container">
             <CircleProgressBar
               strokeWidth={4}
