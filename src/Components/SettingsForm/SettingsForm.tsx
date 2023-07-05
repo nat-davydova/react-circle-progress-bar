@@ -33,6 +33,35 @@ export function SettingsForm() {
           <label htmlFor="surface-color">Surface Color: </label>
           <input id="surface-color" type="color" value="#e3e3e3" />
         </div>
+        <div>
+          <h3>Progress Bar</h3>
+          <label htmlFor="progress-bg">Plain Background: </label>
+          <input
+            id="progress-bg"
+            type="radio"
+            name="progress"
+            value="bg"
+            checked
+          />
+
+          <label htmlFor="progress-gradient">Gradient: </label>
+          <input
+            id="progress-gradient"
+            type="radio"
+            name="progress"
+            value="gradient"
+          />
+
+          <label htmlFor="progress-color">Progress Color: </label>
+          <input id="progress-color" type="color" value="#fff000" />
+
+          <div>
+            <label htmlFor="percent-0">Percent: </label>
+            <input id="percent-0" type="number" min={0} max={100} value={65} />
+            <input id="percent" type="color" value="#cccbbb" />
+            <button>Add Point</button>
+          </div>
+        </div>
       </form>
     </div>
   );
