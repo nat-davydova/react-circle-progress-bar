@@ -1,6 +1,14 @@
+import { useContext } from "react";
+
+import { onChangeStrokeWidth } from "../../actions/settingsActions.ts";
+import { SettingsContext } from "../../contexts/SettingsContext.tsx";
+
 import styles from "./SettingsForm.module.css";
 
 export function SettingsForm() {
+  const settings = useContext(SettingsContext);
+  const { strokeWidth } = settings;
+
   return (
     <div>
       <h2>Pick Progress Bar Settings</h2>
@@ -12,7 +20,14 @@ export function SettingsForm() {
           </div>
           <div className={styles.field}>
             <label htmlFor="strokeWidth">Stroke width:</label>
-            <input id="strokeWidth" type="number" min={1} max={50} value={4} />
+            <input
+              id="strokeWidth"
+              type="number"
+              min={1}
+              max={50}
+              value={strokeWidth}
+              onChange={(e) => onChangeStrokeWidth({ width: e.target.value })}
+            />
           </div>
         </div>
 
