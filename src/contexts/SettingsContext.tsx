@@ -1,6 +1,8 @@
-import { createContext, ReactElement, useState } from "react";
+import { createContext, ReactElement, useReducer } from "react";
 
-interface ISettings {
+import { settingsReducer } from "../reducers/settingsReducer.ts";
+
+export interface ISettings {
   strokeWidth: number;
 }
 
@@ -15,10 +17,10 @@ const initialSettings: ISettings = {
 export const SettingsContext = createContext<ISettings>(initialSettings);
 
 export const SettingsProvider = ({ children }: IContextProps) => {
-  const [settings, setSettings] = useState(initialSettings);
+  const [state] = useReducer(settingsReducer, initialSettings);
 
   return (
-    <SettingsContext.Provider value={settings}>
+    <SettingsContext.Provider value={state}>
       {children}
     </SettingsContext.Provider>
   );
