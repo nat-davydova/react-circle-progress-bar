@@ -1,8 +1,10 @@
+import styles from "./SettingsForm.module.css";
+
 export function SettingsForm() {
   return (
     <div>
-      <h2>Pick Progress Bar Settings</h2>
-      <form name="progress-settings">
+      <h2 className={styles.formTitle}>Pick Progress Bar Settings</h2>
+      <form className={styles.form} name="progress-settings">
         <div>
           <label htmlFor="percentage">Percentage:</label>
           <input id="percentage" type="number" min={0} max={100} value={65} />
@@ -60,6 +62,17 @@ export function SettingsForm() {
             <input id="percent-0" type="number" min={0} max={100} value={65} />
             <input id="percent" type="color" value="#cccbbb" />
             <button>Add Point</button>
+          </div>
+
+          <div>
+            <h3>Text Content</h3>
+            <label htmlFor="content">Text Content:</label>
+            <input
+              id="content"
+              type="text"
+              value="65%"
+              placeholder="Add Text Content"
+            />
           </div>
         </div>
       </form>
