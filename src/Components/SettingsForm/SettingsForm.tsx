@@ -3,7 +3,7 @@ import styles from "./SettingsForm.module.css";
 export function SettingsForm() {
   return (
     <div>
-      <h2 className={styles.formTitle}>Pick Progress Bar Settings</h2>
+      <h2>Pick Progress Bar Settings</h2>
       <form className={styles.form} name="progress-settings">
         <div>
           <label htmlFor="percentage">Percentage:</label>

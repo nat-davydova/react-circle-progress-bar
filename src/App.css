@@ -41,15 +41,14 @@ body a {
 
 .content {
     display: flex;
-    flex-direction: column;
     gap: 40px;
-    align-items: center;
     margin: 50px auto;
 }
 
 .progressBar-container {
     width: 250px;
     height: 250px;
+    margin-top: 50px;
 }
 
 .textLabel {
