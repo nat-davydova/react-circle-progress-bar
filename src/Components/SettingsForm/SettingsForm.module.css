@@ -1,5 +1,24 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+}
+
+.form h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.form label {
+    font-weight: bold;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.field input[type="radio"] {
+    margin-top: 2px;
 }
