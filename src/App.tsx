@@ -1,9 +1,15 @@
 import "./App.css";
+import { useContext } from "react";
+
 import { CircleProgressBar } from "./Components/CircleProgressBar/CircleProgressBar.tsx";
 import { Header } from "./Components/Header/Header.tsx";
 import { SettingsForm } from "./Components/SettingsForm/SettingsForm.tsx";
+import { SettingsContext } from "./contexts/SettingsContext.tsx";
 
 function App() {
+  const settings = useContext(SettingsContext);
+  const { strokeWidth } = settings;
+
   return (
     <div className="app">
       <Header />
@@ -12,7 +18,7 @@ function App() {
           <SettingsForm />
           <div className="progressBar-container">
             <CircleProgressBar
-              strokeWidth={4}
+              strokeWidth={strokeWidth}
               progressPercents={65}
               strokeLineCap="round"
               textLabel={{
