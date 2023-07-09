@@ -6,6 +6,7 @@ import { initialSettings } from "./settings-consts.ts";
 
 export interface ISettings {
   strokeWidth?: number;
+  progressPercents: number;
 }
 
 interface IContextProps {

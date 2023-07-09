@@ -1,6 +1,9 @@
 import { useContext } from "react";
 
-import { onChangeStrokeWidth } from "../../actions/settingsActions.ts";
+import {
+  onChangeProgressPercents,
+  onChangeStrokeWidth,
+} from "../../actions/settingsActions.ts";
 import {
   SettingsContext,
   SettingsDispatchContext,
@@ -11,7 +14,7 @@ import styles from "./SettingsForm.module.css";
 export function SettingsForm() {
   const settings = useContext(SettingsContext);
   const dispatch = useContext(SettingsDispatchContext);
-  const { strokeWidth } = settings;
+  const { strokeWidth, progressPercents } = settings;
 
   if (!dispatch) {
     return <></>;
@@ -24,7 +27,19 @@ export function SettingsForm() {
         <div className={styles.fieldsContainer}>
           <div className={styles.field}>
             <label htmlFor="percentage">Percentage:</label>
-            <input id="percentage" type="number" min={0} max={100} value={65} />
+            <input
+              id="percentage"
+              type="number"
+              min={0}
+              max={100}
+              value={progressPercents}
+              onChange={(e) =>
+                onChangeProgressPercents({
+                  progressPercents: Number(e.target.value),
+                  dispatch,
+                })
+              }
+            />
           </div>
           <div className={styles.field}>
             <label htmlFor="strokeWidth">Stroke width:</label>
