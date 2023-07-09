@@ -8,7 +8,7 @@ import { SettingsContext } from "./contexts/SettingsContext.tsx";
 
 function App() {
   const settings = useContext(SettingsContext);
-  const { strokeWidth, progressPercents } = settings;
+  const { strokeWidth, progressPercents, strokeLineCaps } = settings;
 
   return (
     <div className="app">
@@ -20,7 +20,7 @@ function App() {
             <CircleProgressBar
               strokeWidth={strokeWidth}
               progressPercents={progressPercents}
-              strokeLineCap="round"
+              strokeLineCaps={strokeLineCaps}
               textLabel={{
                 content: "65%",
               }}

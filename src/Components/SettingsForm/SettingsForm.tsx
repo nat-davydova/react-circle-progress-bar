@@ -2,6 +2,7 @@ import { useContext } from "react";
 
 import {
   onChangeProgressPercents,
+  onChangeStrokeLineCaps,
   onChangeStrokeWidth,
 } from "../../actions/settingsActions.ts";
 import {
@@ -68,15 +69,34 @@ export function SettingsForm() {
                 name="caps"
                 value="round"
                 checked
+                onChange={(e) => {
+                  console.log("wow");
+                  onChangeStrokeLineCaps({
+                    strokeLineCapsType: e.target.value,
+                    dispatch,
+                  });
+                }}
               />
             </div>
-
             <div className={styles.field}>
               <label htmlFor="caps-square">Square: </label>
-              <input id="caps-square" type="radio" name="caps" value="square" />
+              <input
+                id="caps-square"
+                type="radio"
+                name="caps"
+                value="square"
+                onChange={(e) => {
+                  console.log("toto");
+                  onChangeStrokeLineCaps({
+                    strokeLineCapsType: e.target.value,
+                    dispatch,
+                  });
+                }}
+              />
             </div>
           </div>
         </div>
+
         <div>
           <h3>Surface</h3>
 

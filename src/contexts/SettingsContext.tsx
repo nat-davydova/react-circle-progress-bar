@@ -1,5 +1,6 @@
 import React, { createContext, ReactElement, useReducer } from "react";
 
+import { TStrokeLineCaps } from "../Components/CircleProgressBar/types.ts";
 import { IAction, settingsReducer } from "../reducers/settingsReducer.ts";
 
 import { initialSettings } from "./settings-consts.ts";
@@ -7,6 +8,7 @@ import { initialSettings } from "./settings-consts.ts";
 export interface ISettings {
   strokeWidth?: number;
   progressPercents: number;
+  strokeLineCaps?: TStrokeLineCaps;
 }
 
 interface IContextProps {

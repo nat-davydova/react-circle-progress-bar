@@ -16,7 +16,7 @@ interface ICircleProgressBarProps {
   strokeWidth?: number;
   progressPercents: number;
   surface: ISurfaceSettings;
-  strokeLineCap?: TStrokeLineCaps;
+  strokeLineCaps?: TStrokeLineCaps;
   progressBar: IProgressBarSettings;
   containerClassName?: string;
   textLabel?: ITextLabelSettings;
@@ -25,7 +25,7 @@ interface ICircleProgressBarProps {
 export function CircleProgressBar({
   strokeWidth = DEFAULT_PROGRESS_STROKE_WIDTH_PX,
   progressPercents,
-  strokeLineCap = DEFAULT_STROKE_LINECAP,
+  strokeLineCaps = DEFAULT_STROKE_LINECAP,
   surface,
   progressBar,
   textLabel,
@@ -99,7 +99,7 @@ export function CircleProgressBar({
             strokeWidth={strokeWidth}
             strokeDasharray={circleLength}
             strokeDashoffset={offset}
-            strokeLinecap={strokeLineCap}
+            strokeLinecap={strokeLineCaps}
             fill="transparent"
             className={
               !progressBgColor && !isProgressGradientDefined

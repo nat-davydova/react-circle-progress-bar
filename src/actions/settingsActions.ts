@@ -1,5 +1,6 @@
 import React from "react";
 
+import { TStrokeLineCaps } from "../Components/CircleProgressBar/types.ts";
 import { IAction, SettingsAction } from "../reducers/settingsReducer.ts";
 
 export interface IDispatch {
@@ -12,6 +13,10 @@ export interface IStrokeWidthProps extends IDispatch {
 
 export interface IProgressPercentsProps extends IDispatch {
   progressPercents: number;
+}
+
+export interface IStrokeLineCapsProps extends IDispatch {
+  strokeLineCapsType: TStrokeLineCaps;
 }
 
 export function onChangeStrokeWidth({ width, dispatch }: IStrokeWidthProps) {
@@ -31,6 +36,19 @@ export function onChangeProgressPercents({
     type: SettingsAction.CHANGE_PROGRESS_PERECENTS,
     payload: {
       progressPercents: Number(progressPercents),
+    },
+  });
+}
+
+export function onChangeStrokeLineCaps({
+  strokeLineCapsType,
+  dispatch,
+}: IStrokeLineCapsProps) {
+  console.log("hey");
+  dispatch({
+    type: SettingsAction.CHANGE_STROKE_LINE_CAPS,
+    payload: {
+      strokeLineCaps: strokeLineCapsType,
     },
   });
 }
