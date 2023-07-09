@@ -9,7 +9,10 @@ export interface IAction {
   payload: Partial<ISettings>;
 }
 
-export function settingsReducer(state: ISettings, action: IAction) {
+export function settingsReducer(
+  state: ISettings,
+  action: IAction
+): ISettings | never {
   const { type, payload } = action;
 
   switch (type) {

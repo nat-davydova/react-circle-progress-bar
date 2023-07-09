@@ -1,13 +1,21 @@
 import { useContext } from "react";
 
 import { onChangeStrokeWidth } from "../../actions/settingsActions.ts";
-import { SettingsContext } from "../../contexts/SettingsContext.tsx";
+import {
+  SettingsContext,
+  SettingsDispatchContext,
+} from "../../contexts/SettingsContext.tsx";
 
 import styles from "./SettingsForm.module.css";
 
 export function SettingsForm() {
   const settings = useContext(SettingsContext);
+  const dispatch = useContext(SettingsDispatchContext);
   const { strokeWidth } = settings;
+
+  if (!dispatch) {
+    return <></>;
+  }
 
   return (
     <div>
@@ -26,7 +34,9 @@ export function SettingsForm() {
               min={1}
               max={50}
               value={strokeWidth}
-              onChange={(e) => onChangeStrokeWidth({ width: e.target.value })}
+              onChange={(e) =>
+                onChangeStrokeWidth({ width: e.target.value, dispatch })
+              }
             />
           </div>
         </div>
