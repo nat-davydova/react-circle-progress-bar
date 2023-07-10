@@ -9,6 +9,7 @@ export interface ISettings {
   strokeWidth?: number;
   progressPercents: number;
   strokeLineCaps?: TStrokeLineCaps;
+  textContent?: string;
 }
 
 interface IContextProps {

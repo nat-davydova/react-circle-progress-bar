@@ -4,6 +4,7 @@ import {
   onChangeProgressPercents,
   onChangeStrokeLineCaps,
   onChangeStrokeWidth,
+  onChangeTextContent,
 } from "../../actions/settingsActions.ts";
 import {
   SettingsContext,
@@ -16,7 +17,8 @@ import styles from "./SettingsForm.module.css";
 export function SettingsForm() {
   const settings = useContext(SettingsContext);
   const dispatch = useContext(SettingsDispatchContext);
-  const { strokeWidth, progressPercents, strokeLineCaps } = settings;
+  const { strokeWidth, progressPercents, strokeLineCaps, textContent } =
+    settings;
 
   if (!dispatch) {
     return <></>;
@@ -163,14 +165,17 @@ export function SettingsForm() {
           </div>
         </div>
         <div>
-          <h3>Text Content</h3>
+          <h3>Text Label</h3>
           <div className={styles.field}>
-            <label htmlFor="content">Text Content:</label>
+            <label htmlFor="content">Text Label:</label>
             <input
               id="content"
               type="text"
-              value="65%"
+              value={textContent}
               placeholder="Add Text Content"
+              onChange={(e) =>
+                onChangeTextContent({ textContent: e.target.value, dispatch })
+              }
             />
           </div>
         </div>

@@ -8,7 +8,8 @@ import { SettingsContext } from "./contexts/SettingsContext.tsx";
 
 function App() {
   const settings = useContext(SettingsContext);
-  const { strokeWidth, progressPercents, strokeLineCaps } = settings;
+  const { strokeWidth, progressPercents, strokeLineCaps, textContent } =
+    settings;
 
   return (
     <div className="app">
@@ -22,7 +23,7 @@ function App() {
               progressPercents={progressPercents}
               strokeLineCaps={strokeLineCaps}
               textLabel={{
-                content: "65%",
+                content: textContent || "",
               }}
               surface={{
                 show: true,

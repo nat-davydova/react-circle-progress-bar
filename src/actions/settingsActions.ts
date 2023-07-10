@@ -19,6 +19,10 @@ export interface IStrokeLineCapsProps extends IDispatch {
   strokeLineCapsType: TStrokeLineCaps;
 }
 
+export interface ITextContentProps extends IDispatch {
+  textContent: string;
+}
+
 export function onChangeStrokeWidth({ width, dispatch }: IStrokeWidthProps) {
   dispatch({
     type: SettingsAction.CHANGE_STROKE_WIDTH,
@@ -48,6 +52,18 @@ export function onChangeStrokeLineCaps({
     type: SettingsAction.CHANGE_STROKE_LINE_CAPS,
     payload: {
       strokeLineCaps: strokeLineCapsType,
+    },
+  });
+}
+
+export function onChangeTextContent({
+  textContent,
+  dispatch,
+}: ITextContentProps) {
+  dispatch({
+    type: SettingsAction.CHANGE_TEXT_CONTENT,
+    payload: {
+      textContent,
     },
   });
 }

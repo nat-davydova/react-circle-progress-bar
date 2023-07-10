@@ -4,6 +4,7 @@ export enum SettingsAction {
   CHANGE_STROKE_WIDTH = "change-stroke-width",
   CHANGE_PROGRESS_PERECENTS = "change-progress-percents",
   CHANGE_STROKE_LINE_CAPS = "change-stroke-line-caps",
+  CHANGE_TEXT_CONTENT = "change-text-content",
 }
 
 export interface IAction {
@@ -16,7 +17,8 @@ export function settingsReducer(
   action: IAction
 ): ISettings | never {
   const { type, payload } = action;
-  const { strokeWidth, progressPercents, strokeLineCaps } = payload;
+  const { strokeWidth, progressPercents, strokeLineCaps, textContent } =
+    payload;
 
   switch (type) {
     case SettingsAction.CHANGE_STROKE_WIDTH:
@@ -39,6 +41,13 @@ export function settingsReducer(
       return {
         ...state,
         strokeLineCaps,
+      };
+    }
+
+    case SettingsAction.CHANGE_TEXT_CONTENT: {
+      return {
+        ...state,
+        textContent,
       };
     }
 
