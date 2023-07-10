@@ -15,7 +15,9 @@ import styles from "./SettingsForm.module.css";
 export function SettingsForm() {
   const settings = useContext(SettingsContext);
   const dispatch = useContext(SettingsDispatchContext);
-  const { strokeWidth, progressPercents } = settings;
+  const { strokeWidth, progressPercents, strokeLineCaps } = settings;
+
+  console.log(strokeLineCaps === "round");
 
   if (!dispatch) {
     return <></>;
@@ -68,9 +70,8 @@ export function SettingsForm() {
                 type="radio"
                 name="caps"
                 value="round"
-                checked
+                checked={strokeLineCaps === "round"}
                 onChange={(e) => {
-                  console.log("wow");
                   onChangeStrokeLineCaps({
                     strokeLineCapsType: e.target.value,
                     dispatch,
@@ -86,7 +87,6 @@ export function SettingsForm() {
                 name="caps"
                 value="square"
                 onChange={(e) => {
-                  console.log("toto");
                   onChangeStrokeLineCaps({
                     strokeLineCapsType: e.target.value,
                     dispatch,
