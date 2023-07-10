@@ -8,8 +8,15 @@ import { SettingsContext } from "./contexts/SettingsContext.tsx";
 
 function App() {
   const settings = useContext(SettingsContext);
-  const { strokeWidth, progressPercents, strokeLineCaps, textContent } =
-    settings;
+  const {
+    strokeWidth,
+    progressPercents,
+    strokeLineCaps,
+    textContent,
+    surface,
+  } = settings;
+
+  const { show } = surface;
 
   return (
     <div className="app">
@@ -26,7 +33,7 @@ function App() {
                 content: textContent || "",
               }}
               surface={{
-                show: true,
+                show,
               }}
               progressBar={{
                 bgColor: "orange",

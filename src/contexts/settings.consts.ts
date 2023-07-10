@@ -5,4 +5,7 @@ export const initialSettings: ISettings = {
   progressPercents: 65,
   strokeLineCaps: "round",
   textContent: "Text Label",
+  surface: {
+    show: true,
+  },
 };

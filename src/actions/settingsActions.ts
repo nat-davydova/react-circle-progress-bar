@@ -67,3 +67,5 @@ export function onChangeTextContent({
     },
   });
 }
+
+export function toggleSurfaceVisibility() {}

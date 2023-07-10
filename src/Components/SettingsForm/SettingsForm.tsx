@@ -17,8 +17,15 @@ import styles from "./SettingsForm.module.css";
 export function SettingsForm() {
   const settings = useContext(SettingsContext);
   const dispatch = useContext(SettingsDispatchContext);
-  const { strokeWidth, progressPercents, strokeLineCaps, textContent } =
-    settings;
+  const {
+    strokeWidth,
+    progressPercents,
+    strokeLineCaps,
+    textContent,
+    surface,
+  } = settings;
+
+  const { show: isSurfaceVisible } = surface;
 
   if (!dispatch) {
     return <></>;
@@ -104,7 +111,12 @@ export function SettingsForm() {
           <div className={styles.fieldsContainer}>
             <div className={styles.field}>
               <label htmlFor="show-surface">Show Surface: </label>
-              <input id="show-surface" type="checkbox" value="show" checked />
+              <input
+                id="show-surface"
+                type="checkbox"
+                value="show"
+                checked={isSurfaceVisible}
+              />
             </div>
 
             <div className={styles.field}>
