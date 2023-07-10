@@ -9,6 +9,7 @@ import {
   SettingsContext,
   SettingsDispatchContext,
 } from "../../contexts/SettingsContext.tsx";
+import { TStrokeLineCaps } from "../CircleProgressBar/types.ts";
 
 import styles from "./SettingsForm.module.css";
 
@@ -16,8 +17,6 @@ export function SettingsForm() {
   const settings = useContext(SettingsContext);
   const dispatch = useContext(SettingsDispatchContext);
   const { strokeWidth, progressPercents, strokeLineCaps } = settings;
-
-  console.log(strokeLineCaps === "round");
 
   if (!dispatch) {
     return <></>;
@@ -73,7 +72,7 @@ export function SettingsForm() {
                 checked={strokeLineCaps === "round"}
                 onChange={(e) => {
                   onChangeStrokeLineCaps({
-                    strokeLineCapsType: e.target.value,
+                    strokeLineCapsType: e.target.value as TStrokeLineCaps,
                     dispatch,
                   });
                 }}
@@ -88,7 +87,7 @@ export function SettingsForm() {
                 value="square"
                 onChange={(e) => {
                   onChangeStrokeLineCaps({
-                    strokeLineCapsType: e.target.value,
+                    strokeLineCapsType: e.target.value as TStrokeLineCaps,
                     dispatch,
                   });
                 }}

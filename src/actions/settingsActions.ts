@@ -44,7 +44,6 @@ export function onChangeStrokeLineCaps({
   strokeLineCapsType,
   dispatch,
 }: IStrokeLineCapsProps) {
-  console.log("hey");
   dispatch({
     type: SettingsAction.CHANGE_STROKE_LINE_CAPS,
     payload: {
